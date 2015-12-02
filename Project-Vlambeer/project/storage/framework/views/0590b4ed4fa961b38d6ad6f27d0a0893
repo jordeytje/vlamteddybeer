@@ -1,0 +1,21 @@
+    <?php $__env->startSection('section'); ?>
+        <div class="container">
+            <div class="game-overview">
+                <?php foreach($games as $game): ?>
+                    <div class="game-box col-md-5 col-md-push-1">
+                        <div class="img" style="background: url(<?php echo e($game['game_background_img']); ?>)">
+                            <div class="description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Ad alias, assumenda cum cumque dignissimos ducimus eaque eius eos explicabo magnam
+                                maxime nihil pariatur quasi, qui quo saepe, similique temporibus voluptas! </div>
+                        </div>
+                        <div class="title">
+                            <h1><a href=""> <?php echo e($game['game_name']); ?></a></h1>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

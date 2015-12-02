@@ -1,0 +1,54 @@
+<?php $__env->startSection('section'); ?>
+    <div class="container">
+        <?php foreach($games as $game): ?>
+            <div class="game-post">
+                <div class="img" style="background: url(<?php echo e($game['game_background_img']); ?>)"> </div>
+                <div class="title">
+                    <h1><?php echo e($game['game_name']); ?></h1>
+                </div>
+                <p>
+                    <?php echo e($game['description']); ?>
+
+                </p>
+
+                <div class="game-buy">
+                    <h2>Buy This game here for:</h2>
+                    <?php if($game['game_name'] == "Gun Godz"): ?>
+                        <a href="<?php echo e($game['steam_payment_link']); ?>">
+                            <div class="payment-img" id="venuspatrol"></div>
+                        </a>
+                    <?php endif; ?>
+                    <?php if($game['steam_payment_link'] != null && $game['game_name'] != "Gun Godz"): ?>
+                        <a href="<?php echo e($game['steam_payment_link']); ?>">
+                            <div class="payment-img" id="steam"></div>
+                        </a>
+                    <?php endif; ?>
+                    <?php if($game['ios_payment_link'] != null): ?>
+                        <a href="<?php echo e($game['ios_payment_link']); ?>">
+                            <div class="payment-img" id="apple"></div>
+                        </a>
+                    <?php endif; ?>
+                    <?php if($game['vita_payment_link'] != null): ?>
+                        <a href="<?php echo e($game['vita_payment_link']); ?>">
+                            <div class="payment-img" id="playstation"></div>
+                        </a>
+                    <?php endif; ?>
+                    <?php if($game['game_name'] == "Super Bread Box"): ?>
+                        <a href="<?php echo e($game['regular_payment_link']); ?>">
+                            <div class="payment-img" id="superbreadbox"></div>
+                        </a>
+                    <?php endif; ?>
+                    <?php if($game['game_name'] == "Ridiculous Fishing"): ?>
+                        <a href="<?php echo e($game['regular_payment_link']); ?>">
+                            <div class="payment-img" id="android"></div>
+                        </a>
+                        <a href="<?php echo e($game['ios_payment_link']); ?>">
+                            <div class="payment-img" id="apple"></div>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
